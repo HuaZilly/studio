@@ -4,41 +4,42 @@ import {cn} from "@/lib/utils";
 import Link from 'next/link';
 
 interface ProductGridProps {
-  filters: Record<string, any>;
-  sortBy: string;
-  sortOrder: 'asc' | 'desc';
+  products: Product[];
+  filters?: Record<string, any>;
+  sortBy?: string;
+  sortOrder?: 'asc' | 'desc';
 }
 
-export const ProductGrid = ({filters, sortBy, sortOrder}: ProductGridProps) => {
-  const [products, setProducts] = useState<Product[]>([]);
+export const ProductGrid = ({products, filters, sortBy, sortOrder}: ProductGridProps) => {
+  // const [products, setProducts] = useState<Product[]>([]);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      // TODO: actually call the getProducts service
-      setProducts([
-        {
-          id: '1',
-          name: 'T-Shirt',
-          description: 'A comfortable cotton t-shirt.',
-          price: 25,
-          imageUrl: 'https://picsum.photos/200/300',
-          category: 'clothing',
-          attributes: {size: 'M', color: 'blue'},
-        },
-        {
-          id: '2',
-          name: 'React Template',
-          description: 'A basic React template with routing.',
-          price: 50,
-          imageUrl: 'https://picsum.photos/200/300',
-          category: 'code',
-          attributes: {language: 'React', type: 'template'},
-        },
-      ]);
-    };
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     // TODO: actually call the getProducts service
+  //     setProducts([
+  //       {
+  //         id: '1',
+  //         name: 'T-Shirt',
+  //         description: 'A comfortable cotton t-shirt.',
+  //         price: 25,
+  //         imageUrl: 'https://picsum.photos/200/300',
+  //         category: 'clothing',
+  //         attributes: {size: 'M', color: 'blue'},
+  //       },
+  //       {
+  //         id: '2',
+  //         name: 'React Template',
+  //         description: 'A basic React template with routing.',
+  //         price: 50,
+  //         imageUrl: 'https://picsum.photos/200/300',
+  //         category: 'code',
+  //         attributes: {language: 'React', type: 'template'},
+  //       },
+  //     ]);
+  //   };
 
-    fetchProducts();
-  }, [filters, sortBy, sortOrder]);
+  //   fetchProducts();
+  // }, [filters, sortBy, sortOrder]);
 
   return (
     <div className="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
