@@ -1,6 +1,7 @@
 import {Product} from '@/services/products';
 import {useEffect, useState} from 'react';
 import {cn} from "@/lib/utils";
+import Link from 'next/link';
 
 interface ProductGridProps {
   filters: Record<string, any>;
@@ -42,17 +43,19 @@ export const ProductGrid = ({filters, sortBy, sortOrder}: ProductGridProps) => {
   return (
     <div className="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {products.map(product => (
-        <div key={product.id} className="relative rounded-lg border bg-card text-card-foreground shadow-sm">
-          <img src={product.imageUrl} alt={product.name} className="aspect-square h-auto w-full rounded-md object-cover" />
-          <div className="p-4">
-            <h3 className="font-semibold">{product.name}</h3>
-            <p className="text-sm text-muted-foreground">{product.description}</p>
-            <div className="mt-2 flex items-center justify-between">
-              <span className="text-sm">Price: ${product.price}</span>
-              <span className="text-sm text-muted-foreground">Category: {product.category}</span>
+        <Link key={product.id} href={`/${product.id}`}>
+          <div className="relative rounded-lg border bg-card text-card-foreground shadow-sm">
+            <img src={product.imageUrl} alt={product.name} className="aspect-square h-auto w-full rounded-md object-cover" />
+            <div className="p-4">
+              <h3 className="font-semibold">{product.name}</h3>
+              <p className="text-sm text-muted-foreground">{product.description}</p>
+              <div className="mt-2 flex items-center justify-between">
+                <span className="text-sm">Price: ${product.price}</span>
+                <span className="text-sm text-muted-foreground">Category: {product.category}</span>
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );
