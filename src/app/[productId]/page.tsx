@@ -3,6 +3,9 @@
 import {Product} from '@/services/products';
 import {useEffect, useState} from 'react';
 import {useParams} from 'next/navigation';
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
+import {Button} from "@/components/ui/button";
+import {ShoppingCart} from "lucide-react";
 
 export default function ProductPage() {
   const [product, setProduct] = useState<Product | null>(null);
@@ -31,27 +34,34 @@ export default function ProductPage() {
 
   return (
     <div className="container mx-auto mt-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <img src={product.imageUrl} alt={product.name} className="rounded-lg shadow-md" />
-        <div>
-          <h1 className="text-2xl font-bold mb-4">{product.name}</h1>
-          <p className="text-gray-700 mb-4">{product.description}</p>
-          <p className="text-xl font-semibold mb-4">Price: ${product.price}</p>
-          <div className="mb-4">
-            <h2 className="text-lg font-semibold mb-2">Attributes:</h2>
-            <ul>
-              {Object.entries(product.attributes).map(([key, value]) => (
-                <li key={key} className="text-gray-600">
-                  {key}: {value}
-                </li>
-              ))}
-            </ul>
+      <Card>
+        <CardHeader>
+          <CardTitle>{product.name}</CardTitle>
+          <CardDescription>{product.description}</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <img src={product.imageUrl} alt={product.name} className="rounded-md shadow-md" />
+            <div>
+              <p className="text-xl font-semibold mb-4">Price: ${product.price}</p>
+              <div className="mb-4">
+                <h2 className="text-lg font-semibold mb-2">Attributes:</h2>
+                <ul>
+                  {Object.entries(product.attributes).map(([key, value]) => (
+                    <li key={key} className="text-gray-600">
+                      {key}: {value}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <Button>
+                <ShoppingCart className="mr-2 h-4 w-4" />
+                Add to Cart
+              </Button>
+            </div>
           </div>
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Add to Cart
-          </button>
-        </div>
-      </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }
