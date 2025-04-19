@@ -3,13 +3,17 @@
 import {Product} from '@/services/products';
 import {useEffect, useState} from 'react';
 import {useParams} from 'next/navigation';
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
-import {Button} from "@/components/ui/button";
-import {ShoppingCart} from "lucide-react";
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/components/ui/card';
+import {Button} from '@/components/ui/button';
+import {ShoppingCart} from 'lucide-react';
+import {useToast} from '@/hooks/use-toast';
+import {useCart} from '@/context/cart-context';
 
 export default function ProductPage() {
   const [product, setProduct] = useState<Product | null>(null);
   const {productId} = useParams();
+  const {toast} = useToast();
+  const {addToCart} = useCart();
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -31,6 +35,16 @@ export default function ProductPage() {
   if (!product) {
     return <div>Loading...</div>;
   }
+
+  const handleAddToCart = () => {
+    if (product) {
+      addToCart(product.id);
+      toast({
+        title: 'Added to cart',
+        description: `Successfully added ${product.name} to cart.`,
+      });
+    }
+  };
 
   return (
     <div className="container mx-auto mt-8">
@@ -54,7 +68,7 @@ export default function ProductPage() {
                   ))}
                 </ul>
               </div>
-              <Button>
+              <Button onClick={handleAddToCart}>
                 <ShoppingCart className="mr-2 h-4 w-4" />
                 Add to Cart
               </Button>
@@ -65,3 +79,5 @@ export default function ProductPage() {
     </div>
   );
 }
+
+    
