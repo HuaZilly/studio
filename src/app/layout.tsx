@@ -1,14 +1,18 @@
+import type {Metadata} from 'next';
 import Link from 'next/link';
 import SearchBar from '@/components/search-bar';
 import MiniCart from '@/components/minicart';
 import {ShoppingCart} from 'lucide-react';
 import {CartProvider} from '@/context/cart-context';
-import {Metadata} from 'next';
 
 export const metadata: Metadata = {
   title: 'Code & Couture',
   description: 'Buy and sell code snippets and clothing.',
 };
+
+'use client';
+
+import {useState, useEffect} from 'react';
 
 export default function RootLayout({children}: Readonly<{children: React.ReactNode}>) {
   return (
@@ -22,7 +26,7 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
             {/* Logo */}
             <SearchBar />
             <div className="flex items-center gap-4">
-              <Link href="/checkout">
+              <Link href="/cart">
                 <ShoppingCart className="mr-2 h-4 w-4" />
                 Checkout
               </Link>
