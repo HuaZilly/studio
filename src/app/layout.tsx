@@ -1,15 +1,16 @@
-'use client';
 
-import {GeistSans} from 'geist/font';
 import Link from 'next/link';
 import SearchBar from '@/components/search-bar';
-import {useRouter} from 'next/navigation';
-import {useState, useEffect} from 'react';
 import MiniCart from '@/components/minicart';
 import {ShoppingCart} from 'lucide-react';
 import {Button} from '@/components/ui/button';
 import {CartProvider} from '@/context/cart-context';
 import {Metadata} from 'next';
+
+export const metadata: Metadata = {
+  title: 'Code & Couture',
+  description: 'Buy and sell code snippets and clothing.',
+};
 
 export default function RootLayout({children}: Readonly<{children: React.ReactNode}>) {
   return (
