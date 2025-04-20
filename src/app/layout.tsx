@@ -1,5 +1,6 @@
 'use client';
 
+import {GeistSans} from 'geist/font';
 import Link from 'next/link';
 import SearchBar from '@/components/search-bar';
 import {useRouter} from 'next/navigation';
@@ -8,11 +9,12 @@ import MiniCart from '@/components/minicart';
 import {ShoppingCart} from 'lucide-react';
 import {Button} from '@/components/ui/button';
 import {CartProvider} from '@/context/cart-context';
+import {Metadata} from 'next';
 
 export default function RootLayout({children}: Readonly<{children: React.ReactNode}>) {
   return (
     <html lang="en">
-      <body>
+      <body className="font-sans antialiased">
         <CartProvider>
           <header className="bg-secondary p-4 flex justify-between items-center">
             <Link href="/" className="font-bold text-xl">
@@ -33,4 +35,3 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
     </html>
   );
 }
-
