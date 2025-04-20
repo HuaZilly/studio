@@ -1,9 +1,7 @@
-
 import Link from 'next/link';
 import SearchBar from '@/components/search-bar';
 import MiniCart from '@/components/minicart';
 import {ShoppingCart} from 'lucide-react';
-import {Button} from '@/components/ui/button';
 import {CartProvider} from '@/context/cart-context';
 import {Metadata} from 'next';
 
@@ -25,7 +23,8 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
             <SearchBar />
             <div className="flex items-center gap-4">
               <Link href="/checkout">
-                <Button variant="outline">Checkout</Button>
+                <ShoppingCart className="mr-2 h-4 w-4" />
+                Checkout
               </Link>
               <MiniCart />
             </div>
