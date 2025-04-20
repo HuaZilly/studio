@@ -1,16 +1,18 @@
+'use client';
+
 import type {Metadata} from 'next';
 import Link from 'next/link';
 import SearchBar from '@/components/search-bar';
 import MiniCart from '@/components/minicart';
 import {ShoppingCart} from 'lucide-react';
 import {CartProvider} from '@/context/cart-context';
+import {GeistSans} from 'geist/font';
+import {GeistMono} from 'geist/font';
 
-export const metadata: Metadata = {
-  title: 'Code & Couture',
-  description: 'Buy and sell code snippets and clothing.',
-};
-
-'use client';
+// export const metadata: Metadata = {
+//   title: 'Code & Couture',
+//   description: 'Buy and sell code snippets and clothing.',
+// };
 
 import {useState, useEffect} from 'react';
 
@@ -39,3 +41,4 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
     </html>
   );
 }
+
