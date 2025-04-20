@@ -8,13 +8,13 @@ body {
 
 @layer base {
   :root {
-    --background: 210 20% 96%; /* Off-white */
+    --background: 240 5% 99%; /* Off-white */
     --foreground: 210 10% 20%; /* Neutral gray */
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
-    --primary: 180 100% 25%; /* Teal */
+    --primary: 48 98% 50%; /* Dark blue */
     --primary-foreground: 0 0% 98%;
     --secondary: 210 20% 96%;
     --secondary-foreground: 210 10% 20%;
@@ -41,6 +41,8 @@ body {
     --sidebar-accent-foreground: 210 10% 10%;
     --sidebar-border: 210 20% 91%;
     --sidebar-ring: 210 10% 60%;
+    --footer-background: 48 98% 50%;
+    --footer-foreground: 0 0% 98%;
   }
   .dark {
     --background: 210 10% 15%; /* Darker neutral gray */
@@ -49,7 +51,7 @@ body {
     --card-foreground: 210 10% 98%;
     --popover: 210 10% 4%;
     --popover-foreground: 210 10% 98%;
-    --primary: 180 100% 25%; /* Teal */
+    --primary: 48 98% 50%; /* Dark blue */
     --primary-foreground: 210 10% 9%;
     --secondary: 210 10% 15%;
     --secondary-foreground: 210 10% 98%;
@@ -75,6 +77,8 @@ body {
     --sidebar-accent-foreground: 210 10% 96%;
     --sidebar-border: 210 10% 16%;
     --sidebar-ring: 210 10% 60%;
+    --footer-background: 48 98% 50%;
+    --footer-foreground: 210 10% 98%;
   }
 }
 
@@ -86,4 +90,3 @@ body {
     @apply bg-background text-foreground;
   }
 }
-
