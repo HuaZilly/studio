@@ -100,7 +100,7 @@ const inspiredSections = [
 export default function Home() {
   const [filters, setFilters] = useState({});
   const [sortBy, setSortBy] = useState('name');
-  const [sortOrder, setSortOrder: React.Dispatch<React.SetStateAction<"asc" | "desc">>] = useState<'asc' | 'desc'>('asc');
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
@@ -248,3 +248,4 @@ export default function Home() {
     </div>
   );
 }
+
