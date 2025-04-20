@@ -8,6 +8,7 @@ import {Product} from '@/services/products';
 import {Button} from '@/components/ui/button';
 import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from '@/components/ui/dropdown-menu';
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/components/ui/card';
+import {cn} from '@/lib/utils';
 
 const MiniCart = () => {
   const {items, removeFromCart} = useCart();
@@ -63,7 +64,9 @@ const MiniCart = () => {
           <ShoppingCart className="h-5 w-5"/>
           <span className="sr-only">Toggle Cart</span>
           {totalItems > 0 && (
-            <span className="absolute -top-2 -right-2 rounded-full bg-primary text-primary-foreground px-1 py-0.5 text-xs font-bold">{totalItems}</span>
+            <span className={cn(
+              "absolute -top-2 -right-2 h-5 w-5 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold"
+            )}>{totalItems}</span>
           )}
         </Button>
       </DropdownMenuTrigger>
