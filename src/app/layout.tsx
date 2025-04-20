@@ -11,9 +11,9 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
     <html lang="en">
       <body className="font-sans antialiased">
         <CartProvider>
-          <header className="bg-secondary p-4 flex justify-between items-center">
-            <Link href="/" className="font-bold text-xl">
-              Code &amp; Couture
+          <header className="bg-primary p-4 flex justify-between items-center">
+            <Link href="/" className="font-bold text-xl text-primary-foreground">
+              Code &amp; Couture{/* Logo */}
             </Link>
             <SearchBar />
             <div className="flex items-center gap-4">
