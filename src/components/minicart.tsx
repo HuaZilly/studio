@@ -79,6 +79,9 @@ const MiniCart = () => {
                   <div>
                     <p className="text-sm font-medium">{item.product.name}</p>
                     <p className="text-xs text-muted-foreground">Quantity: {item.quantity}</p>
+                    {Object.entries(item.product.attributes).map(([key, value]) => (
+                      <p key={key} className="text-xs text-muted-foreground">{key}: {value}</p>
+                    ))}
                   </div>
                 </div>
                 <Button variant="outline" size="xs" onClick={() => handleRemoveFromCart(item.product.id)}>

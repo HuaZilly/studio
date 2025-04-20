@@ -39,9 +39,13 @@ export default function ProductPage() {
   const handleAddToCart = () => {
     if (product) {
       addToCart(product.id);
+      const attributeString = Object.entries(product.attributes)
+        .map(([key, value]) => `${key}: ${value}`)
+        .join(', ');
+
       toast({
         title: 'Added to cart',
-        description: `Successfully added ${product.name} to cart.`,
+        description: `Successfully added ${product.name} (${attributeString}) to cart.`,
       });
     }
   };
@@ -79,5 +83,3 @@ export default function ProductPage() {
     </div>
   );
 }
-
-    
